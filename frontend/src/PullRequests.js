@@ -4,7 +4,8 @@ import axios from "axios";
 function PullRequests() {
   const [pulls, setPulls] = useState([]);
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
+
 
   useEffect(() => {
     axios.get(`${API_URL}/pulls`)
