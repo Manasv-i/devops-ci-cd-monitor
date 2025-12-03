@@ -4,8 +4,10 @@ import axios from "axios";
 function Issues() {
   const [issues, setIssues] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    axios.get("http://localhost:5000/issues")
+    axios.get(`${API_URL}/issues`)
       .then(res => setIssues(res.data))
       .catch(() => setIssues([]));
   }, []);
@@ -32,4 +34,3 @@ function Issues() {
 }
 
 export default Issues;
-

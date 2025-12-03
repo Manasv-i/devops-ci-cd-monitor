@@ -5,8 +5,11 @@ function Commits() {
   const [commits, setCommits] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Backend URL from Vite environment variable
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    axios.get("http://localhost:5000/commits")
+    axios.get(`${API_URL}/commits`)
       .then(res => {
         setCommits(res.data);
         setLoading(false);

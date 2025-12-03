@@ -4,8 +4,10 @@ import axios from "axios";
 function Pipeline() {
   const [runs, setRuns] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    axios.get("http://localhost:5000/pipeline")
+    axios.get(`${API_URL}/pipeline`)
       .then(res => setRuns(res.data))
       .catch(() => setRuns([]));
   }, []);

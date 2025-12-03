@@ -4,8 +4,10 @@ import axios from "axios";
 function PullRequests() {
   const [pulls, setPulls] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    axios.get("http://localhost:5000/pulls")
+    axios.get(`${API_URL}/pulls`)
       .then(res => setPulls(res.data))
       .catch(() => setPulls([]));
   }, []);
